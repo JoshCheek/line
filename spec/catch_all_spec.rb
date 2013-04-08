@@ -1,18 +1,25 @@
 require 'spec_helper'
 
+matcher_interface = Class.new do
+  Surrogate.endow self
+  define(:matches?) { |line, positive_index, negative_index| true }
+  define(:inspect)  { |parent=nil| }
+end
+
+describe 'matchers' do
+  specify 'implement the matcher interface' do
+    Line::Matchers::And.should             substitute_for matcher_interface, subset: true, names: true
+    Line::Matchers::MatchEverything.should substitute_for matcher_interface, subset: true, names: true
+    Line::Matchers::MatchNothing.should    substitute_for matcher_interface, subset: true, names: true
+    Line::Matchers::Not.should             substitute_for matcher_interface, subset: true, names: true
+    Line::Matchers::Or.should              substitute_for matcher_interface, subset: true, names: true
+    Line::Matchers::Range.should           substitute_for matcher_interface, subset: true, names: true
+  end
+end
+
 describe 'match_indexes (fucking helpers are too complex -.-)' do
 
-  class MatcherInterface
-    Surrogate.endow self
-    define(:matches?) { |line, positive_index, negative_index| true }
-    define(:inspect)  { |parent=nil| }
-  end
-
-  let(:spy) { MatcherInterface.new }
-
-  specify 'Matchers implement the MatcherInterface' do
-    Line::Matchers::Index.should substitute_for MatcherInterface, subset: true, names: true
-  end
+  let(:spy) { matcher_interface.new }
 
   it 'returns true when they match single positive indexes' do
     spy.will_matches? true

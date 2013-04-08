@@ -5,7 +5,7 @@ class Line
     class MatchEverything
       include Helpers
 
-      def matches?(*)
+      def matches?(line, positive_index, negative_index)
         true
       end
 

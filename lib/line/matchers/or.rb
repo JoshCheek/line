@@ -9,8 +9,9 @@ class Line
         @matcher1, @matcher2 = matcher1, matcher2
       end
 
-      def matches?(*args)
-        @matcher1.matches?(*args) || @matcher2.matches?(*args)
+      def matches?(line, positive_index, negative_index)
+        @matcher1.matches?(line, positive_index, negative_index) ||
+          @matcher2.matches?(line, positive_index, negative_index)
       end
 
       def inspect(parent=false)
