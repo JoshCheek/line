@@ -50,10 +50,6 @@ class Line
     options.errstream.puts options.line_matcher.inspect
   end
 
-  def high_indexes
-    @high_indexes ||= options.indexes.select { |index| index > max_index }
-  end
-
   def print_errors
     options.errors.each do |type, message|
       options.errstream.puts message
