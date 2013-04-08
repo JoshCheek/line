@@ -1,6 +1,9 @@
+require 'surrogate/rspec'
+
+require 'simplecov'
+SimpleCov.start
 require 'line'
 require 'line/options_parser'
-require 'surrogate/rspec'
 
 module LineSpecHelpers
   def parse(args)
