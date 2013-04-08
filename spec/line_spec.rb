@@ -8,7 +8,7 @@ describe Line do
   let(:options)    { parse(args).update errstream: _stderr, outstream: _stdout, instream: _stdin }
   let(:stderr)     { exitstatus; _stderr.string }
   let(:stdout)     { exitstatus; _stdout.string }
-  let(:exitstatus) { described_class.new(options).call }
+  let(:exitstatus) { described_class.call options }
 
   context 'when there are errors' do
     it 'prints the errors to the error stream and has an exit status of 1' do
@@ -26,7 +26,7 @@ describe Line do
 
     it "prints each line, and its indexes" do
       _stdin.string = "a\nb\nc\n"
-      args << '-2'
+      args << '-2' << '^1..2'
       stderr.should include '"a\n", 1, nil'
       stderr.should include '"b\n", 2, -2'
       stderr.should include '"c\n", 3, -1'
