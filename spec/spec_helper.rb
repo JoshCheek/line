@@ -1,4 +1,5 @@
 require 'line'
+require 'line/options_parser'
 require 'surrogate/rspec'
 
 module LineSpecHelpers

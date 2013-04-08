@@ -1,0 +1,7 @@
+require 'line/matchers/or'
+require 'line/matchers/not'
+require 'line/matchers/and'
+require 'line/matchers/index'
+require 'line/matchers/range'
+require 'line/matchers/match_nothing'
+require 'line/matchers/match_everything'

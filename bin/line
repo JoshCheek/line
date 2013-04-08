@@ -2,5 +2,6 @@
 
 $LOAD_PATH.unshift File.expand_path '../../lib', __FILE__
 require 'line'
+require 'line/options_parser'
 
 exit Line.call Line::OptionParser.call ARGV
