@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Line::VERSION
   s.authors     = ["Josh Cheek"]
   s.email       = ["josh.cheek@gmail.com"]
-  s.homepage    = "https://github.com/JoshCheek/surrogate"
+  s.homepage    = "https://github.com/JoshCheek/line"
   s.summary     = %q{Command line tool to filter lines of input based on index.}
   s.description = %q{Command line tool to filter lines of input based on index.}
 
