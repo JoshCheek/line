@@ -15,6 +15,11 @@ describe 'matchers' do
     Line::Matchers::Or.should              substitute_for matcher_interface, subset: true, names: true
     Line::Matchers::Range.should           substitute_for matcher_interface, subset: true, names: true
   end
+
+  specify "Range will raise an error if you somehow get it in a state we thought couldn't happen" do
+    expect { Line::Matchers::Range.new(-2, -1).matches?('a', 1, nil) }
+      .to raise_error /impossible/
+  end
 end
 
 describe 'match_indexes (fucking helpers are too complex -.-)' do

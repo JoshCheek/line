@@ -18,7 +18,7 @@ class Line
         elsif 0 < lower && 0 < upper                   then lower <= positive_index && positive_index <= upper
         elsif 0 < lower                                then lower <= positive_index
         elsif 0 < upper                                then positive_index <= upper
-        else                                                false
+        else raise 'It was thought to be impossible for this to happen, please open an issue at https://github.com/JoshCheek/line with the arguments you invoked the program with'
         end
       end
 
